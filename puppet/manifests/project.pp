@@ -8,10 +8,14 @@ Stage['first'] -> Stage['main'] -> Stage['last']
 
 
 class box {
-  class {'system_update':  stage => first }
+  class { 'system_update':  stage => first }
 
-  class {'apache':  }
-  class {'apache::mod::php':  }
+  class { 'apache':
+    default_mods => false
+  }
+  class { 'apache::mod::php': }
+  apache::mod { 'rewrite': }
+  apache::mod { 'deflate': }
 
   class { 'mysql::server':
     config_hash => { 'root_password' => 'toor' },
