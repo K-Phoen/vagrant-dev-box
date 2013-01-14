@@ -39,7 +39,33 @@ class project {
     host     => 'localhost',
     grant    => ['all'],
   }
+
+  # deploy
+  package { 'rubygems':
+    ensure => 'installed'
+  }
+
+  exec { 'install capifony using RubyGems':
+    command => 'gem install capifony',
+    require => Package['rubygems'],
+    path    => '/usr/bin/',
+  }
+
+  exec { 'install capistrano_rsync_with_remote_cache using RubyGems':
+    command => 'gem install capistrano_rsync_with_remote_cache',
+    require => Exec['install capifony using RubyGems'],
+    path    => '/usr/bin/',
+  }
+}
+
+class user {
+  $devPackages = [ 'vim', 'zsh', 'curl', 'git', ]
+  package { $devPackages:
+    ensure => 'installed',
+    require => Exec['aptitude update'],
+  }
 }
 
 include box
 include project
+include user
