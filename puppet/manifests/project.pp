@@ -27,16 +27,10 @@ class project {
     ensure => 'directory',
   }
 
-  file { '/home/vagrant/www/project.loc':
-    ensure  => 'directory',
-    require => File['/home/vagrant/www'],
-  }
-
   apache::vhost { 'project.loc':
     docroot     => '/home/vagrant/www/project.loc/',
     vhost_name  => '*',
     port        => '80',
-    require   => File['/home/vagrant/www/project.loc'],
   }
 
   mysql::db { 'mydb':
