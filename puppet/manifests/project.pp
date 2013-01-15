@@ -3,12 +3,23 @@ class project {
 
   file { '/home/vagrant/www':
     ensure => 'directory',
+    owner  => 'vagrant',
+    group  => 'vagrant',
+  }
+
+  file { "/home/vagrant/www/$params::project_url":
+    ensure  => 'directory',
+    owner   => 'vagrant',
+    group   => 'vagrant',
+    require => File['/home/vagrant/www'],
   }
 
   apache::vhost { $params::project_url:
-    docroot     => '/home/vagrant/www/project.loc/',
-    vhost_name  => '*',
-    port        => '80',
+    docroot       => "/home/vagrant/www/$params::project_url/web",
+    vhost_name    => '*',
+    port          => '80',
+    docroot_owner => 'vagrant',
+    docroot_group => 'vagrant',
   }
 
   mysql::db { $params::db_name:

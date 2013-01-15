@@ -9,9 +9,8 @@
 ## Installed components
 
 * [Apache](http://httpd.apache.org/) using [puppetlabs-apache](https://github.com/puppetlabs/puppetlabs-apache) module
-* [php](http://php.net) using
-* [saz/puppet-php](https://github.com/saz/puppet-php) and [dotdeb](http://www.dotdeb.org)
 * [MySQL](http://dev.mysql.com/downloads/mysql/) using [puppetlabs-mysql](https://github.com/puppetlabs/puppetlabs-mysql)
+* [php 5.4](http://php.net) using [dotdeb](http://www.dotdeb.org)
 * [capifony](http://capifony.org/)
 * and more (git, zsh, vim, etc.)
 

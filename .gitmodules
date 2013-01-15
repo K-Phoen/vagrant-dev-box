@@ -10,6 +10,3 @@
 [submodule "puppet/modules/stdlib"]
 	path = puppet/modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib
-[submodule "puppet/modules/php"]
-	path = puppet/modules/php
-	url = git://github.com/saz/puppet-php.git
