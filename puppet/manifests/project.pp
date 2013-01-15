@@ -1,17 +1,19 @@
 class project {
+  include params
+
   file { '/home/vagrant/www':
     ensure => 'directory',
   }
 
-  apache::vhost { 'project.loc':
+  apache::vhost { $params::project_url:
     docroot     => '/home/vagrant/www/project.loc/',
     vhost_name  => '*',
     port        => '80',
   }
 
-  mysql::db { 'mydb':
-    user     => 'myuser',
-    password => 'mypass',
+  mysql::db { $params::db_name:
+    user     => $params::db_user,
+    password => $params::db_password,
     host     => 'localhost',
     grant    => ['all'],
   }

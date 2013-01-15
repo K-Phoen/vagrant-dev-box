@@ -1,4 +1,6 @@
 class box {
+  include params
+
   class { 'system_update':  stage => first }
 
   class { 'apache':
@@ -8,7 +10,7 @@ class box {
   apache::mod { 'deflate': }
 
   class { 'mysql::server':
-    config_hash => { 'root_password' => 'toor' },
+    config_hash => { 'root_password' => $params::db_password },
   }
 
   class { 'php::apache2': }
