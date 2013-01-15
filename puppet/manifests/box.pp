@@ -9,9 +9,7 @@ class box {
   apache::mod { 'rewrite': }
   apache::mod { 'deflate': }
 
-  class { 'mysql::server':
-    config_hash => { 'root_password' => $params::db_password },
-  }
+  class { 'mysql::server': }
 
   class { 'php::apache2': }
   file { "/etc/php5/conf.d/custom.ini":

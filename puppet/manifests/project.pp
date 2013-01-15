@@ -14,8 +14,6 @@ class project {
   mysql::db { $params::db_name:
     user     => $params::db_user,
     password => $params::db_password,
-    host     => 'localhost',
-    grant    => ['all'],
   }
 
   # deploy
