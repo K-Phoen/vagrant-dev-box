@@ -10,3 +10,6 @@
 [submodule "puppet/modules/stdlib"]
 	path = puppet/modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib
+[submodule "puppet/modules/postgresql"]
+	path = puppet/modules/postgresql
+	url = git://github.com/puppetlabs/puppet-postgresql.git

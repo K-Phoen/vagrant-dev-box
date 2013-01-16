@@ -9,16 +9,18 @@ class box {
   apache::mod { 'rewrite': }
   apache::mod { 'deflate': }
 
-  class { 'mysql::server': }
+  class { 'db':
+    type => $params::db_type,
+  }
 
   package { [ 'php5', 'php5-cli', 'libapache2-mod-php5' ]:
-    ensure  => 'installed',
+    ensure  => 'latest',
     notify  => Service['apache2'],
   }
   package { [
     'php5-apc', 'php5-xsl', 'php5-curl', 'php5-mcrypt', 'php5-memcached', 'php5-mysql', 'php5-xdebug',
     ]:
-    ensure  => 'installed',
+    ensure  => 'latest',
     notify  => Service['apache2'],
     require => Package['php5'],
   }
@@ -31,6 +33,6 @@ class box {
   }
 
   package { 'acl':
-    ensure => 'installed'
+    ensure => 'latest'
   }
 }

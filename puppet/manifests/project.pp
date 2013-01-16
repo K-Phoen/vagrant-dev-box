@@ -22,14 +22,15 @@ class project {
     docroot_group => 'vagrant',
   }
 
-  mysql::db { $params::db_name:
+  db::db { "db_$params::db_name":
+    dbname   => $params::db_name,
     user     => $params::db_user,
     password => $params::db_password,
   }
 
   # deploy
   package { 'rubygems':
-    ensure => 'installed'
+    ensure => 'latest'
   }
 
   exec { 'install capifony using RubyGems':
