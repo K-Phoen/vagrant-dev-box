@@ -10,14 +10,14 @@ class db($type) {
   }
 
   define db ($dbname, $user, $password) {
-    if $type == 'mysql' {
+    if $db::type == 'mysql' {
       mysql::db { $dbname:
         user     => $user,
         password => $password,
       }
     }
 
-    if $type == 'postgresql' {
+    if $db::type == 'postgresql' {
       postgresql::db { $dbname:
         user     => $user,
         password => $password,
