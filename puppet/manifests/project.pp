@@ -1,34 +1,23 @@
 class project {
   include params
 
-  file { '/home/vagrant/www':
-    ensure => 'directory',
-    owner  => 'vagrant',
-    group  => 'vagrant',
+  # nodejs project
+  #class { 'projects::node_js':
+  #  packages => [ "socket.io", "mysql" ],
+  #}
+
+  # PHP project
+  class { 'projects::php':
+    project_url   => $params::project_url,
+    db_type       => $params::db_type,
+    db_name       => $params::db_name,
+    db_user       => $params::db_user,
+    db_password   => $params::db_password,
   }
 
-  file { "/home/vagrant/www/$params::project_url":
-    ensure  => 'directory',
-    owner   => 'vagrant',
-    group   => 'vagrant',
-    require => File['/home/vagrant/www'],
-  }
+  # project specific stuff
 
-  apache::vhost { $params::project_url:
-    docroot       => "/home/vagrant/www/$params::project_url/web",
-    vhost_name    => '*',
-    port          => '80',
-    docroot_owner => 'vagrant',
-    docroot_group => 'vagrant',
-  }
-
-  db::db { "db_$params::db_name":
-    dbname   => $params::db_name,
-    user     => $params::db_user,
-    password => $params::db_password,
-  }
-
-  # deploy
+  ## deploy
   package { 'rubygems':
     ensure => 'latest'
   }
@@ -45,5 +34,10 @@ class project {
     require => Exec['install capifony using RubyGems'],
     path    => '/usr/bin/',
     unless  => 'gem list | /bin/grep capistrano_rsync_with_remote_cache',
+  }
+
+  ## usefull packages
+  package { 'acl':      # for Symfony projects
+    ensure => 'latest'
   }
 }

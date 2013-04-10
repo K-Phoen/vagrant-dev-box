@@ -13,3 +13,9 @@
 [submodule "puppet/modules/postgresql"]
 	path = puppet/modules/postgresql
 	url = git://github.com/puppetlabs/puppet-postgresql.git
+[submodule "modules/nodejs"]
+	path = modules/nodejs
+	url = git://github.com/willdurand/puppet-nodejs.git
+[submodule "puppet/modules/nodejs"]
+	path = puppet/modules/nodejs
+	url = git://github.com/willdurand/puppet-nodejs.git
