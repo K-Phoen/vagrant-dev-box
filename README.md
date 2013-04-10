@@ -1,12 +1,14 @@
-# Set up a PHP development box super fast
+# Set up a development box super fast
 
 ## Installation
 
 * Install vagrant using the installation instructions in the [Getting Started document](http://vagrantup.com/v1/docs/getting-started/index.html)
-* Clone this repository: ```git clone git://github.com/K-Phoen/php-dev-box.git --recursive```
+* Clone this repository: ```git clone --recursive git://github.com/K-Phoen/php-dev-box.git```
 * After running ```vagrant up``` the box is set up using Puppet
 
 ## Installed components
+
+For PHP projects:
 
 * [Apache](http://httpd.apache.org/) using [puppetlabs-apache](https://github.com/puppetlabs/puppetlabs-apache) module
 * [MySQL](http://dev.mysql.com/downloads/mysql/) using [puppetlabs-mysql](https://github.com/puppetlabs/puppetlabs-mysql)
@@ -15,9 +17,15 @@
 * [capifony](http://capifony.org/)
 * and more (git, zsh, vim, etc.)
 
+For nodejs projects:
+
+* [nodejs](http://nodejs.org/) using [puppet-nodejs](https://github.com/willdurand/puppet-nodejs)
+* npm
+
+
 ## Using the box
 
-The apache web server is accessible through 127.0.0.1:8080.
+The Apache web server is accessible through 127.0.0.1:8080.
 The recipes are split so that this setup can be easily used for different
 projects and different users. Just edit the `puppet/manifests/project.pp`
 and `puppet/manifests/user.pp` to fit your needs.
