@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant::Config.run do |config|
+Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
@@ -35,6 +35,14 @@ Vagrant::Config.run do |config|
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
   #config.vm.share_folder "v-ssh-keys", "/home/vagrant/.ssh", "/home/kevin/.ssh"
+  #config.vm.synced_folder "/home/kevin/.ssh", "/home/vagrant/.ssh"
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  config.vm.provider :virtualbox do |vb|
+    # http://serverfault.com/questions/453185/vagrant-virtualbox-dns-10-0-2-3-not-working/453260#453260
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  end
 
   # Run a shell script to initialize the VM
   config.vm.provision :shell do |shell|
