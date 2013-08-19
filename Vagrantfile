@@ -37,9 +37,16 @@ Vagrant.configure("2") do |config|
   #config.vm.share_folder "v-ssh-keys", "/home/vagrant/.ssh", "/home/kevin/.ssh"
   #config.vm.synced_folder "/home/kevin/.ssh", "/home/vagrant/.ssh"
 
+  # Enable ssh agent forwarding
+  config.ssh.forward_agent = true
+
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   config.vm.provider :virtualbox do |vb|
+    # Use VBoxManage to customize the VM. For example to change memory:
+    #vb.customize ["modifyvm", :id, "--memory", "1024"]
+    #vb.customize ["modifyvm", :id, "--cpus", "2"]
+
     # http://serverfault.com/questions/453185/vagrant-virtualbox-dns-10-0-2-3-not-working/453260#453260
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
