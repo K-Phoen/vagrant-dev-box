@@ -1,10 +1,10 @@
 class system_update {
-    file { "/etc/apt/sources.list":
-        owner  => root,
-        group  => root,
-        mode   => 644,
-        source => "/vagrant/conf/apt/source.list",
-    }
+    #file { "/etc/apt/sources.list":
+    #    owner  => root,
+    #    group  => root,
+    #    mode   => 644,
+    #    source => "/vagrant/conf/apt/source.list",
+    #}
 
     file { "/etc/apt/sources.list.d/dotdeb.list":
         owner  => root,
@@ -24,6 +24,6 @@ class system_update {
 
     exec { 'aptitude update':
         command => '/usr/bin/aptitude update',
-        require => File['/etc/apt/sources.list'],
+        #require => File['/etc/apt/sources.list'],
     }
 }

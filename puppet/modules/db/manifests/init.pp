@@ -3,7 +3,7 @@ class db($type) {
     'mysql': { include db::mysql }
     'postgresql': {
       class { 'db::postgresql':
-        version => '8.4',
+        version => '9.1',
       }
     }
     default: { fail('Only mysql and postgresql are supported') }

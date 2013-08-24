@@ -7,11 +7,11 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "debian-squeeze-32"
+  config.vm.box = "debian-wheezy-32"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://mathie-vagrant-boxes.s3.amazonaws.com/debian_squeeze_32.box"
+  #config.vm.box_url = "http://mathie-vagrant-boxes.s3.amazonaws.com/debian_squeeze_32.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
@@ -34,8 +34,7 @@ Vagrant.configure("2") do |config|
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
-  #config.vm.share_folder "v-ssh-keys", "/home/vagrant/.ssh", "/home/kevin/.ssh"
-  #config.vm.synced_folder "/home/kevin/.ssh", "/home/vagrant/.ssh"
+  #config.vm.synced_folder "./shared" "/home/vagrant/shared"
 
   # Enable ssh agent forwarding
   config.ssh.forward_agent = true

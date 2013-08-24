@@ -1,4 +1,7 @@
 import 'os_fix'
+import 'box'
+import 'project'
+import 'user'
 
 stage { 'first': }
 stage { 'server': }

@@ -38,12 +38,12 @@ class projects::php($project_url, $db_type, $db_name, $db_user, $db_password)  {
   }
 
   # php
-  package { [ 'php5', 'php5-cli', 'libapache2-mod-php5' ]:
+  package { [ 'php5', 'php5-cli', 'libapache2-mod-php5', 'apache2-mpm-prefork' ]:
     ensure  => 'latest',
     notify  => Service['apache2'],
   }
   package { [
-    'php5-apc', 'php5-xsl', 'php5-curl', 'php5-mcrypt', 'php5-memcached', 'php5-mysql', 'php5-xdebug',
+    'php5-xsl', 'php5-curl', 'php5-mcrypt', 'php5-memcached', 'php5-mysql', 'php5-xdebug',
     ]:
     ensure  => 'latest',
     notify  => Service['apache2'],
