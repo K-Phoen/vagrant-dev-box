@@ -13,7 +13,7 @@ For PHP projects:
 * [Apache](http://httpd.apache.org/) using [puppetlabs-apache](https://github.com/puppetlabs/puppetlabs-apache) module
 * [MySQL](http://dev.mysql.com/downloads/mysql/) using [puppetlabs-mysql](https://github.com/puppetlabs/puppetlabs-mysql)
 * [PostgreSQL](http://www.postgresql.org/) using [puppetlabs-postgresql](https://github.com/puppetlabs/puppet-postgresql)
-* [php 5.4](http://php.net) using [dotdeb](http://www.dotdeb.org)
+* [php 5.5](http://php.net) using [dotdeb](http://www.dotdeb.org)
 * [capifony](http://capifony.org/)
 * and more (git, zsh, vim, etc.)
 
