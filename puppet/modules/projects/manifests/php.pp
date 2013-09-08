@@ -49,7 +49,7 @@ class projects::php($project_url, $db_type, $db_name, $db_user, $db_password)  {
     notify  => Service['apache2'],
     require => Package['php5'],
   }
-  file { "/etc/php5/conf.d/custom.ini":
+  file { "/etc/php5/mods-available/custom.ini":
     ensure  => 'present',
     mode    => 644,
     source  => "/vagrant/conf/php/custom.ini",
