@@ -3,7 +3,7 @@
 ## Installation
 
 * Install vagrant using the installation instructions in the [Getting Started document](http://vagrantup.com/v1/docs/getting-started/index.html)
-* Clone this repository: ```git clone --recursive git://github.com/K-Phoen/php-dev-box.git```
+* Clone this repository: ```git clone --recursive https://github.com/K-Phoen/vagrant-dev-box.git```
 * After running ```vagrant up``` the box is set up using Puppet
 
 ## Installed components
