@@ -35,6 +35,7 @@ class projects::php($project_url, $db_type, $db_name, $db_user, $db_password)  {
     port          => '80',
     docroot_owner => 'vagrant',
     docroot_group => 'vagrant',
+    override      => 'All',
   }
 
   # php
