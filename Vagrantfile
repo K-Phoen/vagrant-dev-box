@@ -7,11 +7,11 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "debian-wheezy-32"
+  config.vm.box = "debian-wheezy-64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://files.kevingomez.fr/debian_wheezy_32.box"
+  config.vm.box_url = "http://files.kevingomez.fr/debian_wheezy_64.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
   # any other machines on the same network, but cannot be accessed (through this
   # network interface) by any external networks.
   # config.vm.network :hostonly, "192.168.33.10"
+  config.vm.network :private_network, :bridge => "wlan0", :ip => "192.168.15.19"
 
   # Assign this VM to a bridged network, allowing you to connect directly to a
   # network using the host's network device. This makes the VM appear as another
@@ -29,12 +30,12 @@ Vagrant.configure("2") do |config|
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+  #config.vm.network :forwarded_port, guest: 80, host: 8080
 
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
-  #config.vm.synced_folder "./shared", "/home/vagrant/shared"
+  config.vm.synced_folder "./shared", "/home/vagrant/shared"
 
   # Enable ssh agent forwarding
   config.ssh.forward_agent = true

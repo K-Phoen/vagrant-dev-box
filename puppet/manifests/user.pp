@@ -1,5 +1,5 @@
 class user {
-  $devPackages = [ 'vim', 'zsh', 'curl', 'git', 'most', 'tree', 'htop', 'ack-grep', 'exuberant-ctags' ]
+  $devPackages = [ 'vim', 'zsh', 'git', 'most', 'tree', 'htop', 'ack-grep', 'exuberant-ctags' ]
   package { $devPackages:
     ensure  => 'latest',
   }

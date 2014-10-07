@@ -1,8 +1,8 @@
 class params {
-  $db_type     = 'postgresql'
-  $db_user     = 'project_user'
+  $db_type     = 'mongodb'
+  $db_user     = 'user'
   $db_password = 'password'
-  $db_name     = 'project'
+  $db_name     = 'super_cool_project'
 
-  $project_url = 'project.loc'
+  $project_url = 'super-cool-project.loc'
 }

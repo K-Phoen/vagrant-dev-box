@@ -1,5 +1,6 @@
 class db($type) {
   case $type {
+    'mongodb': { include db::mongodb }
     'mysql': { include db::mysql }
     'postgresql': {
       class { 'db::postgresql':
@@ -10,6 +11,13 @@ class db($type) {
   }
 
   define db ($dbname, $user, $password) {
+    if $db::type == 'mongodb' {
+      mongodb::db { $dbname:
+        user     => $user,
+        password => $password,
+      }
+    }
+
     if $db::type == 'mysql' {
       mysql::db { $dbname:
         user     => $user,
